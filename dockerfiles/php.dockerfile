@@ -1,4 +1,4 @@
-FROM php:8-fpm-alpine
+FROM php:8.3-fpm-alpine
 
 ARG UID
 ARG GID
@@ -28,7 +28,7 @@ RUN docker-php-ext-install mysqli
 
 RUN apk update; \
     apk add libxml2-dev; \
-    apk add php82-soap;
+    apk add php83-soap;
 
 RUN apk add --no-cache postgresql-dev; \
     docker-php-ext-install soap; \
@@ -39,6 +39,7 @@ RUN mkdir -p /usr/src/php/ext/redis \
     && echo 'redis' >> /usr/src/php-available-exts \
     && docker-php-ext-install redis
     
-USER laravel
+# USER laravel
+USER root
 
 CMD ["php-fpm", "-y", "/usr/local/etc/php-fpm.conf", "-R"]
