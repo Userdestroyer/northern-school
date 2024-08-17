@@ -1,0 +1,16 @@
+@use "sass:math";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+// Import Bootstrap
+@import "bootstrap";
+
+// Подключение стилей общих элементов проекта
+@import "common";
+@import "navbar";
+
+// Подключение стилей отдельных блоков
+// @import "table";
+// @import "expand";
+// @import "orchid-override";
+// @import "sidebar";
+// @import "multiselect";

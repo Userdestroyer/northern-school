@@ -1,0 +1,41 @@
+@mixin calc-top {
+    @media (min-width: 420px) {
+    //   $window-width: 100vw; // Используем CSS переменную для ширины окна
+      $top-value: 0 - ("100vw - 420px");
+    
+      top: $top-value;
+    }
+}
+
+.full-width-container {
+    width: 100vw; // Растягиваем контейнер на ширину окна
+    overflow-x: hidden; // Предотвращаем горизонтальную прокрутку
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    @include calc-top();
+
+    img {
+        width: 100%; // Растягиваем картинку внутри контейнера на всю ширину
+        height: auto; // Высота пропорциональна ширине
+    }
+}
+
+.aristocratic-font {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400; // Тонкие
+    font-size: 1.2rem; // Увеличиваем размер для элегантности
+    color: gold; // Золотистый цвет
+    line-height: 1.5; // Удобочитаемость
+    letter-spacing: 0.5px; // Немного увеличиваем межбуквенное расстояние для изысканности
+
+    // Дополнительные стили для заголовков или акцентов
+    &.title {
+        font-weight: 700; // Более толстый шрифт для заголовков
+        font-size: 2rem; // Больший размер для заголовков
+        margin-bottom: 0.5rem; // Отступ снизу для заголовков
+    }
+}
