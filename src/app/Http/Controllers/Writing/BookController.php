@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Writing;
 
 use App\Http\Controllers\Controller;
+use App\Models\Writing\Books\Book;
+use App\Models\Writing\Books\BookLocalization;
+use App\Models\Writing\Books\Chapter;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -13,25 +16,23 @@ class BookController extends Controller
      */
     public function list(): View
     {
-        dd('LIST');
-        return view('index');
+        return view('books.list');
     }
 
     /**
      * Show index page
      */
-    public function book($book): View
+    public function book(BookLocalization $bookLocalization): View
     {
-        dd($book);
-        return view('index');
+        return view('books.book-localization', ['bookLocalization' => $bookLocalization]);
     }
 
     /**
      * Show index page
      */
-    public function chapter($book, $chapter): View
+    public function chapter(BookLocalization $bookLocalization, $chapter): View
     {
-        dd($book, $chapter);
-        return view('index');
+        $chapter = $bookLocalization->chapters()->where('number', $chapter)->firstOrFail();
+        return view('books.chapter', ['chapter' => $chapter]);
     }
 }

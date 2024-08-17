@@ -10,8 +10,8 @@ Route::get('/', [ IndexController::class, 'index' ]);
 // book list
 Route::prefix('books')->group(function () {
     Route::get('/', [ BookController::class, 'list' ]);
-    Route::get('/{book}', [ BookController::class, 'book' ]);
-    Route::get('/{book}/{chapter}', [ BookController::class, 'chapter' ]);
+    Route::get('/{bookLocalization}', [ BookController::class, 'book' ]);
+    Route::get('/{bookLocalization}/{chapter}', [ BookController::class, 'chapter' ]);
 });
 
 // screenplay
