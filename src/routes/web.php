@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\Writing\BookController;
 use Illuminate\Support\Facades\Route;
@@ -15,3 +16,7 @@ Route::prefix('books')->group(function () {
 });
 
 // screenplay
+
+
+// Route::get('/auth', [ GoogleAuthController::class, 'login' ])->name('google.auth');
+// Route::get('/callback', [ GoogleAuthController::class, 'callback' ])->name('google.callback');
